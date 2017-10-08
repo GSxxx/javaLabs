@@ -4,45 +4,31 @@ import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MicroDVD {
+class MicroDVD {
     static void delay(String input, String output, int delay, int fps) throws Exception {
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(input));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(output));
         String line;
-        String pattern = "{1111}{1111}";
 
         String regex = "^\\{(\\d+)}\\{(\\d+)}(.*)";
         Pattern r = Pattern.compile(regex);
 
 
         while ((line = bufferedReader.readLine()) != null) {
-            for (int i = 0; i < 12; i++) {
-                if (line.charAt(i) == pattern.charAt(i)) {
-                    continue;
-                }
-
-//                if (Character.getNumericValue(pattern.charAt(i)) == 1) {
-//                    if (!Character.isDigit(line.charAt(i))) {
-//                        throw new WrongFormatOfFrames();
-//                    }
-//                } else {
-//                    throw new WrongFormatOfFrames();
-//                }
-            }
 
             Matcher result = r.matcher(line);
 
-            int timeStart,timeEnd;
+            int timeStart, timeEnd;
 
-            if (result.find( )) {
+            if (result.find()) {
                 timeStart = Integer.valueOf(result.group(1));
                 timeEnd = Integer.valueOf(result.group(2));
-            }else {
+            } else {
                 throw new NoMatchedFrames(line);
             }
 
-            if(timeStart>timeEnd) throw new WrongOrderOfFrames(line);
+            if (timeStart > timeEnd) throw new WrongOrderOfFrames(line);
 
             timeStart += delay * fps;
             timeEnd += delay * fps;
@@ -60,20 +46,18 @@ public class MicroDVD {
     }
 }
 
-class WrongOrderOfFrames extends Exception{
-    public WrongOrderOfFrames(String message) {
+class WrongOrderOfFrames extends Exception {
+    WrongOrderOfFrames(String message) {
         super(message);
+        System.out.println("Wrong order of frames!");
     }
 }
 
-class NoMatchedFrames extends Exception{
-    public NoMatchedFrames(String message) {
+class NoMatchedFrames extends Exception {
+    NoMatchedFrames(String message) {
         super(message);
+        System.out.println("Wrong format of frames!");
     }
 }
-class WrongFormatOfFrames extends Exception{
-    public WrongFormatOfFrames(String message) {
-        super(message);
-    }
-}
+
 

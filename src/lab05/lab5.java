@@ -10,10 +10,10 @@ public class lab5 {
                 File.separator + "Desktop" + File.separator + "gravityOutput.txt";
 
         try {
-            MicroDVD.delay(inputFileName,outputFileName,100,25);
+            MicroDVD.delay(inputFileName, outputFileName, 20, 25);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getStackTrace()[0].getLineNumber());
+            System.out.println("Line: " + e.getStackTrace()[0].getLineNumber());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
