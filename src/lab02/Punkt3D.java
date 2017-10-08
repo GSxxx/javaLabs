@@ -1,7 +1,7 @@
 package lab02;
 
 public class Punkt3D extends Punkt2D {
-    double z;
+    private double z;
 
     public Punkt3D(double x, double y, double z) {
         super(x, y);
