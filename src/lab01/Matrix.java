@@ -2,8 +2,8 @@ package lab01;
 
 class Matrix {
 
-    int ttt[][];
-    int c, w;
+    private int ttt[][];
+    private int c, w;
 
     public Matrix(int[][] ttt, int c, int w) {
         this.ttt = ttt;

@@ -1,4 +1,4 @@
-package lab03;
+package lab03.emailBuilder;
 
 import java.util.LinkedList;
 
@@ -13,22 +13,25 @@ public class EmailMessage {
     private LinkedList<String> bcc; // optional
 
     //Przykładowy konstruktor (można założyć, że pola opcjonalne mogą być null)
-    public EmailMessage(String from,
-                        LinkedList<String> to,
-                        String subject,
-                        String content,
-                        String mimeType,
-                        LinkedList<String> cc,
-                        LinkedList<String> bcc) {
-        // wiele if, else, sprawdzania czy string jest e-mail, itd.
+
+
+    public EmailMessage(String from, LinkedList<String> to, String subject, String content, String mimeType, LinkedList<String> cc, LinkedList<String> bcc) {
+        this.from = from;
+        this.to = to;
+        if(subject!= null) this.subject = subject;
+        if(content!= null) this.content = content;
+        if(mimeType!= null) this.mimeType = mimeType;
+        if(cc!= null) this.cc = cc;
+        if(bcc!= null) this.bcc = bcc;
     }
 
     public static Builder builder() {
         return new EmailMessage.Builder();
     }
 
-    private static class Builder {
+    public static class Builder {
     }
+
 }
 
 
