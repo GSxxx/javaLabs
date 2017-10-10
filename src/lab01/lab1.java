@@ -29,11 +29,15 @@ public class lab1 {
 //            System.out.println("Pesel is incorrect!!!");
 
         //test do macierzy
-        Matrix first= new Matrix(2,2,3,4,5,6);
-        Matrix second= new Matrix(2,2,6,5,4,3);
+        Matrix first= new Matrix(2,3,3,4,5,6,7,8);
+        Matrix second= new Matrix(3,2,6,5,4,3,2,1);
 
         System.out.println(first.toString());
         System.out.println(second.toString());
+
+
+//        System.out.println(first.add(second).toString());
+        System.out.println(first.mul(second).toString());
 
     }
 }
