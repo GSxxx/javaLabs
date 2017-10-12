@@ -18,7 +18,7 @@ public class EmailMessage {
     private LinkedList<String> bcc; // optional
 
 
-    public EmailMessage(Builder builder) {
+    EmailMessage(Builder builder) {
         this.from = builder.from;
         this.to = builder.to;
         this.subject = builder.subject;
@@ -29,7 +29,7 @@ public class EmailMessage {
     }
 
 
-    public static Builder builder() {
+    static Builder builder() {
         return new EmailMessage.Builder();
     }
 
@@ -40,24 +40,32 @@ public class EmailMessage {
         private String content; //optional
         private String mimeType;  // optional
         private LinkedList<String> cc; //optional
-        private LinkedList<String> bcc;
+        private LinkedList<String> bcc; //optional
 
-        public Builder from(String input) {
+        Builder from(String input) throws Exception {
+            if (!input.matches("[a-zA-Z0-9\\\\.]+@[a-zA-Z0-9]+\\.[a-z]+")) {
+                throw new Exception("Wrong email adress.");
+            }
             this.from = input;
             return this;
         }
 
-        public Builder to(String... input) {
+        Builder to(String... input) throws Exception{
+            for(String x : input){
+                if (!x.matches("[a-zA-Z0-9\\\\.]+@[a-zA-Z0-9]+\\.[a-z]+")) {
+                    throw new Exception("Wrong email adress.");
+                }
+            }
             this.to = new LinkedList<>(Arrays.asList(input));
             return this;
         }
 
-        public Builder subject(String input) {
+        Builder subject(String input) {
             this.subject = input;
             return this;
         }
 
-        public Builder content(String input) {
+        Builder content(String input) {
             this.content = input;
             return this;
         }
@@ -77,7 +85,7 @@ public class EmailMessage {
             return this;
         }
 
-        public EmailMessage build() {
+        EmailMessage build() {
             return new EmailMessage(this);
         }
     }
