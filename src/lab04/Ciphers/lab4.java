@@ -1,11 +1,9 @@
 package lab04.Ciphers;
 
-import java.io.*;
-
 public class lab4 {
     public static void main(String arg[]) {
-        String inputFileName = ("C:"+File.separator+"Users"+File.separator+"gsxxx"+File.separator+"Desktop"+File.separator+"tmp.txt");
-        String outputFileName = ("C:"+File.separator+"Users"+File.separator+"gsxxx"+File.separator+"Desktop"+File.separator+"out.txt");
+        String inputFileName = "C:\\Users\\gsxxx\\IdeaProjects\\javaLabs\\src\\lab04\\Ciphers\\tmp.txt";
+        String outputFileName = "C:\\Users\\gsxxx\\IdeaProjects\\javaLabs\\src\\lab04\\Ciphers\\out.txt";
 
         Algorithm cipher= new ROT11();
 
