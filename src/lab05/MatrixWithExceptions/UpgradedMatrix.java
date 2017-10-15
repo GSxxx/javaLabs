@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-class UpgradedMatrix extends Matrix {
+public class UpgradedMatrix extends Matrix {
 
-    UpgradedMatrix(BufferedReader reader) throws IOException {
+    protected UpgradedMatrix(BufferedReader reader) throws IOException {
         String line;
         int rows = 0, columns = 0;
         LinkedList<Integer> list = new LinkedList<>();

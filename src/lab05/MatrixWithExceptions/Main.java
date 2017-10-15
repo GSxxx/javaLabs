@@ -16,7 +16,7 @@ public class Main {
             UpgradedMatrix B = new UpgradedMatrix(reader);
             System.out.println(A.toString());
             System.out.println(B.toString());
-            System.out.println(A.add(B).toString());
+//            System.out.println(A.add(B).toString());
             System.out.println(A.mul(B).toString());
 
 
