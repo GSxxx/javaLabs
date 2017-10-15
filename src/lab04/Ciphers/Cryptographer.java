@@ -1,4 +1,4 @@
-package lab04;
+package lab04.Ciphers;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

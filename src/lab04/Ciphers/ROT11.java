@@ -1,4 +1,4 @@
-package lab04;
+package lab04.Ciphers;
 
 public class ROT11 implements Algorithm {
 
