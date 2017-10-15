@@ -1,7 +1,11 @@
 package lab01;
 
 public class Pesel {
-    String pesel;
+    private String pesel;
+
+    public String getPesel() {
+        return pesel;
+    }
 
     public Pesel(String pesel) {
         this.pesel = pesel;

@@ -1,5 +1,7 @@
 package lab01;
 
+import lab05.MatrixWithExceptions.MatrixDimensionsException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -40,11 +42,16 @@ public class lab1 {
 //
 //        System.out.println(first.toString());
 //        System.out.println(second.toString());
+//
+//
+//        try {
+//            System.out.println(first.add(second).toString());
+//            System.out.println(first.mul(second).toString());
+//        } catch (MatrixDimensionsException e) {
+//            e.printStackTrace();
+//        }
 
-
-//        System.out.println(first.add(second).toString());
-//        System.out.println(first.mul(second).toString());
-
+        //test do primem numbers
 //        new PrimeNumbers();
 
     }

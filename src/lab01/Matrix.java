@@ -1,70 +1,75 @@
 package lab01;
 
-class Matrix {
+import lab05.MatrixWithExceptions.MatrixDimensionsException;
 
-    private int ttt[][];
-    private int c, w;
+public class Matrix {
 
-    public Matrix(int[][] ttt, int c, int w) {
-        this.ttt = ttt;
-        this.c = c;
-        this.w = w;
+    public int ttt[][];
+    public int columns, rows;
+
+    public Matrix() {
     }
 
-    Matrix(int c, int w, int... j) {
-        this.c = c;
-        this.w = w;
-        ttt = new int[c][w];
+    public Matrix(int[][] ttt, int rows, int columns) {
+        this.ttt = ttt;
+        this.columns = columns;
+        this.rows = rows;
+    }
+
+    Matrix(int rows, int columns, int... j) {
+        this.rows = rows;
+        this.columns = columns;
+        ttt = new int[rows][columns];
         int i = 0;
 
-        for (int z = 0; z < c; z++) {
-            for (int x = 0; x < w; x++) {
+        for (int z = 0; z < rows; z++) {
+            for (int x = 0; x < columns; x++) {
                 ttt[z][x] = j[i];
                 i++;
             }
         }
     }
 
-    Matrix add(Matrix B) {
-        int[][] C = new int[c][w];
-        for (int i = 0; i < c; i++) {
-            for (int j = 0; j < w; j++) {
+    protected Matrix add(Matrix B) throws MatrixDimensionsException {
+        int[][] C = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 C[i][j] = ttt[i][j] + B.ttt[i][j];
             }
         }
-        return new Matrix(C, c, w);
+        return new Matrix(C, rows, columns);
     }
 
     Matrix sub(Matrix B) {
-        int[][] C = new int[c][w];
-        for (int i = 0; i < c; i++) {
-            for (int j = 0; j < w; j++) {
+        int[][] C = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 C[i][j] = ttt[i][j] - B.ttt[i][j];
             }
         }
-        return new Matrix(C, c, w);
+        return new Matrix(C, rows, columns);
     }
 
-    Matrix mul(Matrix B) {
-        int[][] C = new int[c][B.w];
-        for (int i = 0; i < c; i++) {
-            for (int j = 0; j < B.w; j++) {
+    protected Matrix mul(Matrix B) throws MatrixDimensionsException {
+        int[][] C = new int[columns][B.rows];
+        for (int i = 0; i < columns; i++) {
+            for (int j = 0; j < B.rows; j++) {
                 int result = 0;
-                for (int d = 0; d < w; d++) {
+                for (int d = 0; d < rows; d++) {
                     result += ttt[i][d] * B.ttt[d][j];
                 }
                 C[i][j] = result;
             }
         }
-        return new Matrix(C, c, B.w);
+        return new Matrix(C, columns, B.rows);
     }
 
 
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder();
-        for (int z = 0; z < c; z++) {
-            for (int x = 0; x < w; x++) {
+        for (int z = 0; z < rows; z++) {
+            for (int x = 0; x < columns; x++) {
                 output.append(ttt[z][x]).append(" ");
             }
             output.append(System.getProperty("line.separator"));
