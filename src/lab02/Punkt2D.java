@@ -3,7 +3,7 @@ package lab02;
 public class Punkt2D {
     private double x, y;
 
-    public Punkt2D(double x, double y) {
+    Punkt2D(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -16,12 +16,12 @@ public class Punkt2D {
         this.y = y;
     }
 
-    public double getX() {
+    double getX() {
 
         return x;
     }
 
-    public double getY() {
+    double getY() {
         return y;
     }
 
