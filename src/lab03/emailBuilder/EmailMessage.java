@@ -43,7 +43,7 @@ public class EmailMessage {
         private LinkedList<String> bcc; //optional
 
         Builder from(String input) throws Exception {
-            if (!input.matches("[a-zA-Z0-9\\\\.]+@[a-zA-Z0-9]+\\.[a-z]+")) {
+            if (!input.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\.]+\\.[a-z]+")) {
                 throw new Exception("Wrong email adress.");
             }
             this.from = input;
@@ -52,7 +52,7 @@ public class EmailMessage {
 
         Builder to(String... input) throws Exception{
             for(String x : input){
-                if (!x.matches("[a-zA-Z0-9\\\\.]+@[a-zA-Z0-9]+\\.[a-z]+")) {
+                if (!x.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\.]+\\.[a-z]+")) {
                     throw new Exception("Wrong email adress.");
                 }
             }
