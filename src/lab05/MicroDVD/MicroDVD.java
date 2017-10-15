@@ -1,4 +1,4 @@
-package lab05;
+package lab05.MicroDVD;
 
 import java.io.*;
 import java.util.regex.Matcher;
