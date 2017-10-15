@@ -51,17 +51,17 @@ public class Matrix {
     }
 
     protected Matrix mul(Matrix B) throws MatrixDimensionsException {
-        int[][] C = new int[columns][B.rows];
-        for (int i = 0; i < columns; i++) {
-            for (int j = 0; j < B.rows; j++) {
+        int[][] C = new int[rows][B.columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < B.columns; j++) {
                 int result = 0;
-                for (int d = 0; d < rows; d++) {
+                for (int d = 0; d < columns; d++) {
                     result += ttt[i][d] * B.ttt[d][j];
                 }
                 C[i][j] = result;
             }
         }
-        return new Matrix(C, columns, B.rows);
+        return new Matrix(C, rows, B.columns);
     }
 
 
