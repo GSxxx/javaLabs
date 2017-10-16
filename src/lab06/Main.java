@@ -1,5 +1,7 @@
 package lab06;
 
+import lab06.Shapes.Square;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -16,10 +18,11 @@ public class Main extends JFrame {
         int width = Toolkit.getDefaultToolkit().getScreenSize().width;
         this.setBounds((width - windowWidth) / 2, (height - windowHeight) / 2, windowWidth, windowHeight);
 
-
-
         MainPanel drawPanel = new MainPanel();
+
+
         this.getContentPane().add(drawPanel);
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 

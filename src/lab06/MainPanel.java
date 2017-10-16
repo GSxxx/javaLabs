@@ -9,11 +9,17 @@ public class MainPanel extends JPanel {
 
     MainPanel() {
         super();
+        this.setBackground(Color.GRAY);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             objectsList.add(UpgradedShape.createRandomOShape());
-        }
 
+            MouseListener listener = new MouseListener();
+            objectsList.get(i).addMouseListener(listener);
+            objectsList.get(i).addMouseMotionListener(listener);
+
+            this.add(objectsList.get(i));
+        }
 
     }
 
@@ -21,11 +27,10 @@ public class MainPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-//        Graphics2D g2 = (Graphics2D) g;
-//        g2.drawRect(100, 100 , 400, 100);
-
         for (UpgradedShape x : objectsList) {
             x.draw(g);
         }
     }
+
+
 }
