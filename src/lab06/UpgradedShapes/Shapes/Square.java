@@ -1,6 +1,6 @@
-package lab06.Shapes;
+package lab06.UpgradedShapes.Shapes;
 
-import lab06.UpgradedShape;
+import lab06.UpgradedShapes.UpgradedShape;
 
 import java.awt.*;
 import java.util.Random;

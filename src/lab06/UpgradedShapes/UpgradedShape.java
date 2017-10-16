@@ -1,10 +1,10 @@
-package lab06;
+package lab06.UpgradedShapes;
 
 
-import lab06.Shapes.Circle;
-import lab06.Shapes.Rectangle;
-import lab06.Shapes.Square;
-import lab06.Shapes.Triangle;
+import lab06.UpgradedShapes.Shapes.Circle;
+import lab06.UpgradedShapes.Shapes.Rectangle;
+import lab06.UpgradedShapes.Shapes.Square;
+import lab06.UpgradedShapes.Shapes.Triangle;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package lab06;
+package lab06.UpgradedShapes;
 
 import javax.swing.*;
 import java.awt.*;

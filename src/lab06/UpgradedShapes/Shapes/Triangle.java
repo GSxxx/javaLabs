@@ -1,11 +1,11 @@
-package lab06.Shapes;
+package lab06.UpgradedShapes.Shapes;
 
-import lab06.UpgradedShape;
+import lab06.UpgradedShapes.UpgradedShape;
 
 import java.awt.*;
 import java.util.Random;
 
-public class Circle extends UpgradedShape {
+public class Triangle extends UpgradedShape {
     private int width;
     private int height;
     private int x;
@@ -15,7 +15,7 @@ public class Circle extends UpgradedShape {
     private int color_g;
     private int color_b;
 
-    public Circle() {
+    public Triangle() {
         Random rand = new Random();
         this.width = 60;
         this.height = 60;
@@ -33,7 +33,8 @@ public class Circle extends UpgradedShape {
     @Override
     public void draw(Graphics in) {
         in.setColor(new Color(color_r, color_g, color_b, alpha));
-        in.fillOval(this.x, this.y, this.width, this.height);
+        in.fillPolygon(new int[]{this.x, this.x + this.width, x + width / 2},
+                new int[]{this.y + height, this.y + height, this.y}, 3);
         this.setSize(this.width, this.height);
         this.setLocation(this.x, this.y);
     }

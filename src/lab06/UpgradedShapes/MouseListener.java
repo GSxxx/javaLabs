@@ -1,6 +1,4 @@
-package lab06;
-
-import lab06.Shapes.Rectangle;
+package lab06.UpgradedShapes;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -12,8 +10,8 @@ public class MouseListener extends MouseAdapter {
     @Override
     public void mouseClicked(MouseEvent e) {
 //        System.out.println("Clicked!");
-//        ((lab06.Shapes.Rectangle)e.getComponent()).setX(100);
-//        ((lab06.Shapes.Rectangle)e.getComponent()).setY(100);
+//        ((lab06.UpgradedShapes.Shapes.Rectangle)e.getComponent()).setX(100);
+//        ((lab06.UpgradedShapes.Shapes.Rectangle)e.getComponent()).setY(100);
 //        e.getComponent().paint(e.getComponent().getGraphics());
     }
 

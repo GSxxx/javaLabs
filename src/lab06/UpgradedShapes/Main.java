@@ -1,13 +1,14 @@
-package lab06;
-
-import lab06.Shapes.Square;
+package lab06.UpgradedShapes;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 
 public class Main extends JFrame {
+
+    public static void main(String[] args) {
+        new Main().setVisible(true);
+    }
 
     private Main() {
         super("Shapes");
@@ -26,10 +27,6 @@ public class Main extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
-    }
-
-    public static void main(String[] args) {
-        new Main().setVisible(true);
     }
 
 }
