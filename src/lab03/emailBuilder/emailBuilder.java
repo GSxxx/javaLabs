@@ -7,10 +7,10 @@ public class emailBuilder {
         EmailMessage wiadomosc = null;
         try {
             wiadomosc = EmailMessage.builder()
-                    .from("middleOfNowhere@agh.edu.pl")
+                    .from("mailfortests3@gmail.com")
                     .to("prenc@student.agh.edu.pl")
-                    .subject("Mail testowy")
-                    .content("Brak tresci")
+                    .subject("Super spamowy mail")
+                    .content("To tylko spam")
                     .build();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -18,7 +18,7 @@ public class emailBuilder {
 
         assert wiadomosc != null;
         System.out.println(wiadomosc.toString());
-//        wiadomosc.send();
+        wiadomosc.send();
 
     }
 }

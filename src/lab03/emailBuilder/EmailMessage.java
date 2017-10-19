@@ -43,16 +43,16 @@ public class EmailMessage {
         private LinkedList<String> bcc; //optional
 
         Builder from(String input) throws Exception {
-            if (!input.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\.]+\\.[a-z]+")) {
+            if (!input.matches("^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?")) {
                 throw new Exception("Wrong email adress.");
             }
             this.from = input;
             return this;
         }
 
-        Builder to(String... input) throws Exception{
-            for(String x : input){
-                if (!x.matches("[a-zA-Z0-9\\.]+@[a-zA-Z0-9\\.]+\\.[a-z]+")) {
+        Builder to(String... input) throws Exception {
+            for (String x : input) {
+                if (!x.matches("^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?")) {
                     throw new Exception("Wrong email adress.");
                 }
             }
@@ -96,40 +96,43 @@ public class EmailMessage {
     }
 
     public void send() {
-        // Get system properties
-        Properties properties = System.getProperties();
+        final String username = "mailfortests3@gmail.com";
+        final String password = "kwiatek123";
 
-        // Setup mail server
-        properties.setProperty("mail.smtp.host", "localhost");
+        Properties props = new Properties();
+        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
-        // Get the default Session object.
-        Session session = Session.getDefaultInstance(properties);
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
 
         try {
-            // Create a default MimeMessage object.
-            MimeMessage message = new MimeMessage(session);
 
-            // Set From: header field of the header.
+            Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
-
-            // Set To: header field of the header.
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to.get(0)));
-
-            // Set Subject: header field
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(to.get(0)));
             message.setSubject(subject);
-
-            // Now set the actual message
             message.setText(content);
 
-            // Send message
             Transport.send(message);
-            System.out.println("Sent message successfully....");
-        } catch (Exception mex) {
-            mex.printStackTrace();
-        }
 
+            System.out.println("Message sent!");
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
+
+
 
 
 
