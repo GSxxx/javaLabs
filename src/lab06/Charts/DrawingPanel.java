@@ -59,7 +59,7 @@ class DrawingPanel extends JPanel {
             g2.setFont(new Font("Serif", Font.BOLD, 14));
             g2.drawString(Double.toString(from + sampling * i), x - 5, 685 + shift);
 
-            if(from + sampling * i == 0) g2.drawLine(x, shift - 100, x, 670 + shift);
+            if (from + sampling * i == 0) g2.drawLine(x, shift - 100, x, 670 + shift);
         }
         //vertical grid
         g2.setStroke(new BasicStroke(1));
@@ -73,7 +73,7 @@ class DrawingPanel extends JPanel {
             g2.setColor(Color.BLUE);
             g2.drawString(Integer.toString((int) (yMinimum + (yMaximum - yMinimum) / 20 * i)), 10, y + 5);
 
-            if(yMinimum + (yMaximum - yMinimum) / 20 * i == 0) g2.drawLine(35, y, 1280, y);
+            if (yMinimum + (yMaximum - yMinimum) / 20 * i == 0) g2.drawLine(35, y, 1280, y);
         }
 
         //plot
