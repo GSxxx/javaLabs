@@ -1,9 +1,8 @@
 package wyp_lab09.gadu_gadu;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 
 public class Server {
@@ -17,44 +16,21 @@ public class Server {
             System.exit(-1);
         }
 
-        Socket clientSocket = null;
+        while (true) {
+            Socket clientSocket = serverSocket.accept();
 
-        try {
-            clientSocket = serverSocket.accept();
             System.out.print("new connection accepted: ");
             System.out.println(clientSocket.getInetAddress());
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            System.exit(-1);
+
+            new Thread(new SocketUsage(clientSocket)).start();
         }
 
-        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+//        try {
+//            serverSocket.close();
+//
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
 
-
-        Reader rdr = new InputStreamReader(System.in);
-        Scanner keyboard = new Scanner(rdr);
-
-        String sentMessage = null;
-        String message;
-
-        while (true) {
-            if (in.ready() && (sentMessage = in.readLine()) != null) System.out.println("Me: " + sentMessage);
-            if (rdr.ready()) {
-                message = keyboard.nextLine();
-                if (message.equals("end")) {
-                    out.println(message);
-                    break;
-                } else {
-                    out.println("Message from your server: " + message);
-                }
-            }
-            if (sentMessage != null && sentMessage.equals("end")) break;
-        }
-
-        out.close();
-        in.close();
-        clientSocket.close();
-        serverSocket.close();
     }
 }
