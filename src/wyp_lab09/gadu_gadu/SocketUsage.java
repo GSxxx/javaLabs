@@ -10,7 +10,7 @@ public class SocketUsage implements Runnable {
     private PrintWriter out;
     private BufferedReader in;
 
-    public SocketUsage(Socket clientSocket) throws IOException {
+    SocketUsage(Socket clientSocket) throws IOException {
         this.clientSocket = clientSocket;
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
