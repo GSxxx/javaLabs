@@ -9,6 +9,21 @@ import java.util.StringTokenizer;
 
 public class UpgradedMatrix extends Matrix {
 
+
+    public UpgradedMatrix(int rows, int columns, int... j) {
+        this.rows = rows;
+        this.columns = columns;
+        ttt = new int[rows][columns];
+        int i = 0;
+
+        for (int z = 0; z < rows; z++) {
+            for (int x = 0; x < columns; x++) {
+                ttt[z][x] = j[i];
+                i++;
+            }
+        }
+    }
+
     protected UpgradedMatrix(BufferedReader reader) throws IOException {
         String line;
         int rows = 0, columns = 0;

@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.Assert;
 
 public class MatrixTests {
-
     @Test
     public void MatrixBasicMultiplicationTest(){
         Matrix first= new Matrix(2,3,3,4,5,6,7,8);
@@ -20,4 +19,5 @@ public class MatrixTests {
         }
 
         Assert.assertEquals("Incorrect multiplication!","44 32 \r\n80 59 \r\n",result.toString());}
+
 }
