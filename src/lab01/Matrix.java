@@ -7,16 +7,16 @@ public class Matrix {
     public int ttt[][];
     public int columns, rows;
 
-    public Matrix() {
+    protected Matrix() {
     }
 
-    public Matrix(int[][] ttt, int rows, int columns) {
+    private Matrix(int[][] ttt, int rows, int columns) {
         this.ttt = ttt;
         this.columns = columns;
         this.rows = rows;
     }
 
-    Matrix(int rows, int columns, int... j) {
+    public Matrix(int rows, int columns, int... j) {
         this.rows = rows;
         this.columns = columns;
         ttt = new int[rows][columns];
@@ -50,7 +50,7 @@ public class Matrix {
         return new Matrix(C, rows, columns);
     }
 
-    protected Matrix mul(Matrix B) throws MatrixDimensionsException {
+    public Matrix mul(Matrix B) throws MatrixDimensionsException {
         int[][] C = new int[rows][B.columns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < B.columns; j++) {

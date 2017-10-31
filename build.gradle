@@ -13,8 +13,13 @@ sourceSets {
 	}
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
 	compile files ('lib/activation.jar', 'lib/javax.mail.jar')
+	testCompile 'junit:junit:4.11'
 
 }
 

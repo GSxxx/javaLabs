@@ -45,7 +45,7 @@ public class UpgradedMatrix extends Matrix {
     }
 
     @Override
-    protected Matrix mul(Matrix B) throws MatrixDimensionsException {
+    public Matrix mul(Matrix B) throws MatrixDimensionsException {
         if (this.columns != B.rows)
             throw new MatrixDimensionsException("Wrong Dimensions in multiplication!!!");
         return super.mul(B);

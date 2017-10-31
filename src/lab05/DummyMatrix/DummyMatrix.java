@@ -13,7 +13,7 @@ public class DummyMatrix extends UpgradedMatrix {
     }
 
     @Override
-    protected Matrix mul(Matrix B) throws MatrixDimensionsException {
+    public Matrix mul(Matrix B) throws MatrixDimensionsException {
         if (this.columns != B.rows) {
             int difference = B.rows - columns;
             if (difference > 0) {

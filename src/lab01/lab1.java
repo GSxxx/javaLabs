@@ -9,20 +9,20 @@ import java.io.InputStreamReader;
 public class lab1 {
     public static void main(String[] args) {
 
-        Login log = new Login ("ala", "makota");
-        try{
-            InputStreamReader rd = new InputStreamReader(System.in);
-            BufferedReader bfr = new BufferedReader(rd);
-
-            System.out.println("wpisz login");
-            String login = bfr.readLine();
-            System.out.println("wpisz hasło");
-            String haslo = bfr.readLine();
-
-        if(log.check(login,haslo)) System.out.println("OK");
-        else System.out.println("Błąd danych");
-
-        }catch(IOException e){e.printStackTrace();}
+//        Login log = new Login ("ala", "makota");
+//        try{
+//            InputStreamReader rd = new InputStreamReader(System.in);
+//            BufferedReader bfr = new BufferedReader(rd);
+//
+//            System.out.println("wpisz login");
+//            String login = bfr.readLine();
+//            System.out.println("wpisz hasło");
+//            String haslo = bfr.readLine();
+//
+//        if(log.check(login,haslo)) System.out.println("OK");
+//        else System.out.println("Błąd danych");
+//
+//        }catch(IOException e){e.printStackTrace();}
 
 
 //
@@ -37,11 +37,15 @@ public class lab1 {
 //            System.out.println("Pesel is incorrect!!!");
 
         //test do macierzy
-//        Matrix first= new Matrix(2,3,3,4,5,6,7,8);
-//        Matrix second= new Matrix(3,2,6,5,4,3,2,1);
-//
-//        System.out.println(first.toString());
-//        System.out.println(second.toString());
+        Matrix first= new Matrix(2,3,3,4,5,6,7,8);
+        Matrix second= new Matrix(3,2,6,5,4,3,2,1);
+
+
+        try {
+            System.out.println((first.mul(second)).toString());
+        } catch (MatrixDimensionsException e) {
+            e.printStackTrace();
+        }
 //
 //
 //        try {
