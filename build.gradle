@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+sourceSets {
+	main {
+		java {
+			srcDir 'src'
+		}
+	}
+	test {
+		java {
+			srcDir 'Tests'
+		}
+	}
+}
+
+dependencies {
+	compile files ('lib/activation.jar', 'lib/javax.mail.jar')
+
+}
+
+task wrapper (type: Wrapper)
