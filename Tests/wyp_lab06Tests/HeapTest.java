@@ -13,7 +13,7 @@ public class HeapTest {
     @Test
     public void insert0intoNewHeap_topIs0() {
 
-        Heap heap = new Heap();
+        Heap<Integer> heap = new Heap<>();
         heap.insert(0);
 
         assertEquals("size should be 1", 1, heap.size());
@@ -24,7 +24,7 @@ public class HeapTest {
     @Test
     public void insert0AndThen2intoNewHeap_topIs2() {
 
-        Heap heap = new Heap();
+        Heap<Integer> heap = new Heap<>();
         heap.insert(0);
         heap.insert(2);
 
@@ -35,7 +35,7 @@ public class HeapTest {
     @Test
     public void insert0And2And3And5And6intoNewHeap_topIs6() {
 
-        Heap heap = new Heap();
+        Heap<Integer> heap = new Heap<>();
         heap.insert(0);
         heap.insert(2);
         heap.insert(3);
@@ -48,7 +48,7 @@ public class HeapTest {
     @Test
     public void extractMaxFromSmallHeap() {
 
-        Heap heap = new Heap();
+        Heap<Integer> heap = new Heap<>();
         heap.insert(2);
         heap.insert(4);
         heap.insert(9);
@@ -62,7 +62,7 @@ public class HeapTest {
     @Test
     public void extractMaxFromHugeHeap() {
 
-        Heap heap = new Heap();
+        Heap<Integer> heap = new Heap<>();
         heap.insert(2);
         heap.insert(2);
         heap.insert(9);
@@ -82,7 +82,7 @@ public class HeapTest {
     @Test
     public void deleteMaxFromSmallHeap() {
 
-        Heap heap = new Heap();
+        Heap<Integer> heap = new Heap<>();
         heap.insert(2);
         heap.insert(4);
         heap.insert(9);
@@ -98,7 +98,7 @@ public class HeapTest {
     @Test
     public void replaceFirstElementInHeap() {
 
-        Heap heap = new Heap();
+        Heap<Integer> heap = new Heap<>();
         heap.insert(2);
         heap.insert(4);
         heap.insert(9);
@@ -119,7 +119,7 @@ public class HeapTest {
         myList.add(11.);
         myList.add(47.);
         myList.add(99.);
-        Heap heap = new Heap(myList);
+        Heap<Double> heap = new Heap<>(myList);
 
 
         assertEquals(99, heap.top(), 0.001);
@@ -136,13 +136,13 @@ public class HeapTest {
         myList.add(44.);
         myList.add(23.);
         myList.add(6.);
-        Heap heap = new Heap(myList);
+        Heap<Double> heap = new Heap<>(myList);
         myList2.add(2.);
         myList2.add(-21.);
         myList2.add(11.);
         myList2.add(47.);
         myList2.add(99.);
-        Heap heap2 = new Heap(myList2);
+        Heap<Double> heap2 = new Heap<>(myList2);
 
         heap.meld(heap2);
 
