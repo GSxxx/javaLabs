@@ -23,4 +23,6 @@ dependencies {
 
 }
 
-task wrapper (type: Wrapper)
+task wrapper (type: Wrapper) {
+	version='4.2.1'
+}
