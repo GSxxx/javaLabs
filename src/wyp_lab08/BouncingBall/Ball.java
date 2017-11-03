@@ -9,20 +9,20 @@ public class Ball extends JComponent implements Runnable {
     private int x;
     private int y;
     private int dx;
-
     private int dy;
-
     private Rectangle bounds;
+    private panelMain panel;
 
     Ball(JPanel panel) {
         bounds = panel.getBounds();
+        this.panel = (panelMain) panel;
+        Random rand = new Random();
+        this.setX(rand.nextInt((int) bounds.getMaxX() - 50 - panelMain.thickness * 2) + (int) bounds.getMinX() + panelMain.thickness);
+        this.setY(rand.nextInt((int) bounds.getMaxY() - 50 - panelMain.thickness * 2) + (int) bounds.getMinY() + panelMain.thickness);
 
-//        Random rand = new Random();
-//        this.setX(rand.nextInt(1200) + 20);
-//        this.setY(rand.nextInt(600) + 20);
 
-        this.setX(500);
-        this.setY(300);
+//        this.setX(-55);
+//        this.setY(-55);
         this.setDx(-6);
         this.setDy(9);
 
@@ -38,9 +38,6 @@ public class Ball extends JComponent implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-//            System.out.println("im moving");
-//            System.out.println(this.getX());
-//            System.out.println(this.getY());
         }
     }
 
@@ -53,6 +50,13 @@ public class Ball extends JComponent implements Runnable {
         if (getY() - panelMain.thickness < bounds.getMinY()) setDy(-getDy());
         if (getX() + 50 + panelMain.thickness >= bounds.getMaxX()) setDx(-getDx());
         if (getX() - panelMain.thickness < bounds.getMinX()) setDx(-getDx());
+
+        if (!panel.getBounds().contains(this.getBounds())) {
+
+//            Thread.currentThread().interrupt();//todo przy pierwszym obejsciu petli warunek jest zawsze prawda
+//            System.out.println("wylaczylem");
+//            panel.listOfBalls.remove(this);
+        }
 
     }
 

@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class panelMain extends JPanel {
 
-    private LinkedList<Ball> listOfBalls = new LinkedList<>();
+    LinkedList<Ball> listOfBalls = new LinkedList<>();
     static int thickness = 10;
 
     panelMain() {
