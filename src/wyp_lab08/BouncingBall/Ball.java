@@ -11,11 +11,11 @@ public class Ball extends JComponent implements Runnable {
     private int dx;
     private int dy;
     private Rectangle bounds;
-    private panelMain panel;
+//    private panelMain panel;
 
     Ball(JPanel panel) {
         bounds = panel.getBounds();
-        this.panel = (panelMain) panel;
+//        this.panel = (panelMain) panel;
         Random rand = new Random();
         this.setX(rand.nextInt((int) bounds.getMaxX() - 50 - panelMain.thickness * 2) + (int) bounds.getMinX() + panelMain.thickness);
         this.setY(rand.nextInt((int) bounds.getMaxY() - 50 - panelMain.thickness * 2) + (int) bounds.getMinY() + panelMain.thickness);
@@ -23,7 +23,7 @@ public class Ball extends JComponent implements Runnable {
 
 //        this.setX(-55);
 //        this.setY(-55);
-        this.setDx(-6);
+        this.setDx(0);
         this.setDy(9);
 
     }
@@ -47,16 +47,16 @@ public class Ball extends JComponent implements Runnable {
 
 
         if (getY() + 50 + panelMain.thickness >= bounds.getMaxY()) setDy(-getDy());
-        if (getY() - panelMain.thickness < bounds.getMinY()) setDy(-getDy());
+        if (getY() - panelMain.thickness < bounds.getMinY()) setDy(-getDy() * 3 / 4);
         if (getX() + 50 + panelMain.thickness >= bounds.getMaxX()) setDx(-getDx());
         if (getX() - panelMain.thickness < bounds.getMinX()) setDx(-getDx());
 
-        if (!panel.getBounds().contains(this.getBounds())) {
-
-//            Thread.currentThread().interrupt();//todo przy pierwszym obejsciu petli warunek jest zawsze prawda
-//            System.out.println("wylaczylem");
+//        if (!panel.getBounds().contains(this.getBounds())) {
+//
+//            Thread.currentThread().interrupt();//todo in the first loop's (while) iteration expression is true, why?
+//            System.out.println("turned off");
 //            panel.listOfBalls.remove(this);
-        }
+//        }
 
     }
 

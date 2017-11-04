@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class panelMain extends JPanel {
 
-    LinkedList<Ball> listOfBalls = new LinkedList<>();
+    private LinkedList<Ball> listOfBalls = new LinkedList<>();
     static int thickness = 10;
 
     panelMain() {
@@ -24,10 +24,10 @@ public class panelMain extends JPanel {
         g2.setStroke(new BasicStroke(thickness));
         g2.drawRect(thickness / 2, thickness / 2, this.getWidth() - thickness, this.getHeight() - thickness);
 
-        for(Ball x : listOfBalls) x.paintComponent(g2);
+        for (Ball x : listOfBalls) x.paintComponent(g2);
     }
 
-    void createBall(){
+    void createBall() {
         repaint();    //todo why does it work?
         Ball new_ball = new Ball(this);
         this.add(new_ball);
@@ -35,6 +35,11 @@ public class panelMain extends JPanel {
         new Thread(new_ball).start();
     }
 
+    void wind(int strengthOfWind) {
+        for (Ball x : listOfBalls) {
+                x.setDx(x.getDx() - strengthOfWind); //todo better wind
+        }
+    }
 
 
 //

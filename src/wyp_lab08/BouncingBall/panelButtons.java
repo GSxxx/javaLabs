@@ -2,7 +2,6 @@ package wyp_lab08.BouncingBall;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
@@ -14,14 +13,15 @@ public class panelButtons extends JPanel {
 
         JButton start = (JButton) this.add(new JButton("Start"));
 //        start.setLocation(this.getX() + this.getWidth() / 2, this.getY() + this.getHeight()/2+ 60);
-        start.addActionListener((ActionEvent e) -> {
-            mainScreen.createBall();
-        });
+        start.addActionListener((ActionEvent e) -> mainScreen.createBall());
 
+        //JSlider
         JSlider slider = (JSlider) this.add(new JSlider(JSlider.HORIZONTAL, -5, 5, 0));
         slider.setPaintTicks(true);
         slider.setMajorTickSpacing(1);
         slider.setPaintLabels(true);
+
+        slider.addChangeListener((ChangeEvent e) -> mainScreen.wind(slider.getValue()));
 
 
     }
@@ -33,12 +33,10 @@ public class panelButtons extends JPanel {
 
 
         g2.setColor(Color.RED);
-        int thickness = 10;
+        int thickness = 5;
         g2.setStroke(new BasicStroke(thickness));
         g2.drawRect(thickness / 2, thickness / 2, this.getWidth() - thickness, this.getHeight() - thickness);
 
 
-        System.out.println("buttons: " + this.getWidth());
-        System.out.println(this.getHeight());
     }
 }
