@@ -19,9 +19,11 @@ repositories {
 
 dependencies {
 	compile files ('lib/activation.jar', 'lib/javax.mail.jar')
-	testCompile 'junit:junit:4.11'
+	compile 'junit:junit:4.11'
+	compile 'io.indico:io.indico:3.16.0'
 
 }
+
 
 task wrapper (type: Wrapper) {
 	version='4.2.1'

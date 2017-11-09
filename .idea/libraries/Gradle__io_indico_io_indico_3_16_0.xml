@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.indico:io.indico:3.16.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.indico/io.indico/3.16.0/92af638c9e3dbacaaff3166f2c6bcc5a21cbdb1d/io.indico-3.16.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.indico/io.indico/3.16.0/edc0776c05b4382dc666328b601115bb1c49a84/io.indico-3.16.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
