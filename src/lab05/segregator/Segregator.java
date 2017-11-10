@@ -17,9 +17,14 @@ import org.apache.commons.io.FileUtils;
 
 
 public class Segregator {
-    public static void main(String[] args) throws IndicoException, IOException {
+    public static void main(String[] args) {
 
-        Indico indico = new Indico("aa5afbecdefafdc602aa73a55d8a9a00");
+        Indico indico = null;
+        try {
+            indico = new Indico("aa5afbecdefafdc602aa73a55d8a9a00");
+        } catch (IndicoException e) {
+            e.printStackTrace();
+        }
         NumberFormat formatter = new DecimalFormat("#0.0000");
 
         String[] input = Segregator.returnPathsOfFilesThatMatchToPattern(args[0], ".*\\.jpg$");
@@ -28,15 +33,34 @@ public class Segregator {
         Map<String, Object> params = new HashMap<>();
         params.put("top_n", 1);
 //        params.put("threshold",0.009);
-        BatchIndicoResult multiple = indico.imageRecognition.predict(input, params);
+
+        try {
+            BatchIndicoResult multiple = indico.imageRecognition.predict(input, params);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IndicoException e) {
+            e.printStackTrace();
+        }
 
 
         for (String anExample : input) {
             System.out.print(anExample + ": ");
-            IndicoResult single = indico.imageRecognition.predict(
-                    anExample, params
-            );
-            Map<String, Double> result = single.getImageRecognition();
+            IndicoResult single = null;
+            try {
+                single = indico.imageRecognition.predict(
+                        anExample, params
+                );
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (IndicoException e) {
+                e.printStackTrace();
+            }
+            Map<String, Double> result = null;
+            try {
+                result = single.getImageRecognition();
+            } catch (IndicoException e) {
+                e.printStackTrace();
+            }
 //            result.forEach((key, value) -> System.out.println(key + " *** " + formatter.format(value)));
 
             String newPath = "src/lab05/segregator/foto2/" + result.entrySet().iterator().next().getKey();
@@ -50,7 +74,11 @@ public class Segregator {
             if (m.find()) {
                 System.out.println("Found value: " + m.group(1));
             }
-            FileUtils.copyFile(new File(anExample), new File(newPath + m.group(1)));
+            try {
+                FileUtils.copyFile(new File(anExample), new File(newPath + m.group(1)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }
 

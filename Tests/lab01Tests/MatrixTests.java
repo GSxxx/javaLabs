@@ -18,6 +18,6 @@ public class MatrixTests {
             Assert.fail();
         }
 
-        Assert.assertEquals("Incorrect multiplication!","44 32 \r\n80 59 \r\n",result.toString());}
+        Assert.assertEquals("Incorrect multiplication!","44 32 \n80 59 \n",result.toString());}
 
 }

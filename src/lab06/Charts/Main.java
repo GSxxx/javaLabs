@@ -19,7 +19,7 @@ public class Main extends JFrame {
         this.setBackground(Color.WHITE);
         Container container = this.getContentPane();
 
-        container.add(new DrawingPanel(0.25, -2, 3, 1, -1, -2, 0));
+        container.add(new DrawingPanel(0.1, -2, 3, 1, -1, -2, 0));
 //        container.add(new DrawingPanel(1, -10, 10, 2, 0, -1), BorderLayout.PAGE_END);
 //        this.pack();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
