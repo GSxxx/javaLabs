@@ -13,7 +13,7 @@ public class InteliCwDB extends CwDB {
     }
 
     public LinkedList<Entry> findAll(String pattern) {
-        LinkedList<Entry> result = new LinkedList<Entry>();
+        LinkedList<Entry> result = new LinkedList<>();
         Pattern p = Pattern.compile(pattern);
         for (Entry e :
                 dict) {

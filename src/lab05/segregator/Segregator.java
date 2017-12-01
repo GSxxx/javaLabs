@@ -1,19 +1,19 @@
 package lab05.segregator;
 
 import io.indico.Indico;
+import io.indico.api.results.BatchIndicoResult;
+import io.indico.api.results.IndicoResult;
+import io.indico.api.utils.IndicoException;
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import io.indico.api.results.BatchIndicoResult;
-import io.indico.api.results.IndicoResult;
-import io.indico.api.utils.IndicoException;
-import org.apache.commons.io.FileUtils;
 
 
 public class Segregator {
@@ -36,9 +36,7 @@ public class Segregator {
 
         try {
             BatchIndicoResult multiple = indico.imageRecognition.predict(input, params);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (IndicoException e) {
+        } catch (IOException | IndicoException e) {
             e.printStackTrace();
         }
 
@@ -50,9 +48,7 @@ public class Segregator {
                 single = indico.imageRecognition.predict(
                         anExample, params
                 );
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (IndicoException e) {
+            } catch (IOException | IndicoException e) {
                 e.printStackTrace();
             }
             Map<String, Double> result = null;
