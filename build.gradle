@@ -18,10 +18,9 @@ repositories {
 }
 
 dependencies {
-	compile files ('lib/activation.jar', 'lib/javax.mail.jar')
+	compile files ('lib/activation.jar', 'lib/javax.mail.jar', 'lib/mysql-connector-java-5.1.45-bin.jar')
 	compile 'junit:junit:4.11'
 	compile 'io.indico:io.indico:3.16.0'
-
 }
 
 

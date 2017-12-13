@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":DBGUI" external.linked.project.path="$MODULE_DIR$/../../DBGUI" external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="javaLabs" external.system.module.version="4.2.1" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../../DBGUI/out/production/classes" />
+    <output-test url="file://$MODULE_DIR$/../../DBGUI/out/test/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../DBGUI">
+      <sourceFolder url="file://$MODULE_DIR$/../../DBGUI/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../DBGUI/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../DBGUI/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../DBGUI/src/test/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DBGUI/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DBGUI/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../DBGUI/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Gradle: mysql-connector-java-5.1.45-bin">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../DBGUI/lib/mysql-connector-java-5.1.45-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
+  </component>
+</module>

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/DBGUI.iml" filepath="$PROJECT_DIR$/.idea/modules/DBGUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IdeaProjects-javaLabs.iml" filepath="$PROJECT_DIR$/.idea/modules/IdeaProjects-javaLabs.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaLabs.iml" filepath="$PROJECT_DIR$/javaLabs.iml" />
     </modules>
   </component>
