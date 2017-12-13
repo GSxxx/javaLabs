@@ -23,6 +23,9 @@ public class Controller {
 
 
         ResultSet resultSet = database.sendQuery(query);
+        if(resultSet == null) System.exit(1);
+
+
         textFlow.getChildren().clear();
         textFlow.setLineSpacing(2);
         textFlow.getChildren().add(new Text("isbn  title  author  year\n"));
