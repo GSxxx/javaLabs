@@ -4,7 +4,14 @@ import java.io.*;
 import java.net.Socket;
 import java.util.LinkedList;
 
+
 public class BobekClient {
+
+    public static void main(String[] args) throws IOException {
+        new BobekClient();
+    }
+
+
     String id;
     private LinkedList<String> list = new LinkedList<>();
 
@@ -12,7 +19,7 @@ public class BobekClient {
     BobekClient() throws IOException {
         BufferedReader bufferedReader = null;
         try {
-            bufferedReader = new BufferedReader(new FileReader("fetch.txt"));
+            bufferedReader = new BufferedReader(new FileReader("src/lab08/fetch.txt"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -34,11 +41,13 @@ public class BobekClient {
                     }
                 }
                 list.remove(0);
+                id = list.get(0);
             } else {
                 id = out;
                 break;
             }
         }
+        System.out.println(id);
     }
 
 
@@ -51,7 +60,7 @@ public class BobekClient {
         BufferedReader in = null;
 
         try {
-            echoSocket = new Socket("szymon.ia.agh.edu.pl", 3000);
+            echoSocket = new Socket("localhost", 3000);
             out = new PrintWriter(echoSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(
                     echoSocket.getInputStream()));
@@ -61,7 +70,8 @@ public class BobekClient {
             System.out.println(e.getMessage());
         }
 
-        out.printf("LOGIN\n%s;%s", login, password);
+//        out.printf("LOGIN\n%s;%s", login, password);
+        out.printf("%s",password);
 
         try {
             output = in.readLine();
@@ -81,11 +91,11 @@ public class BobekClient {
     }
 
 
-    int minimum(int a, int b, int c) {
+    static int minimum(int a, int b, int c) {
         return Math.min(Math.min(a, b), c);
     }
 
-    int computeLevenshteinDistance(CharSequence lhs, CharSequence rhs) {
+    static int computeLevenshteinDistance(CharSequence lhs, CharSequence rhs) {
         int[][] distance = new int[lhs.length() + 1][rhs.length() + 1];
 
         for (int i = 0; i <= lhs.length(); i++)
