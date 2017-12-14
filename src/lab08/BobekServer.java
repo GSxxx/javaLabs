@@ -13,7 +13,7 @@ public class BobekServer {
         while(true) {
 
 
-            String pass = "zwilgotnieć/jBHIG";
+            String pass = "naperfumowawszy";
 
             ServerSocket serverSocket = null;
             try {
@@ -26,6 +26,7 @@ public class BobekServer {
             Socket clientSocket = null;
             try {
                 clientSocket = serverSocket.accept();
+                System.out.println("Connection accepted.");
             } catch (IOException e) {
                 System.out.println("Accept failed: 6666");
                 System.exit(-1);
@@ -38,8 +39,9 @@ public class BobekServer {
 
 
             inputLine = in.readLine();
+
             if (inputLine.equals(pass)) {
-                out.print("xxxxxxxxxx");
+                out.println("xElitExx1X1xxx");
             } else {
                 System.out.println(inputLine);
                 out.print(BobekClient.computeLevenshteinDistance(pass, inputLine));

@@ -1,14 +1,15 @@
 package lab08;
 
 import java.io.*;
-import java.net.Socket;
+import java.net.*;
 import java.util.LinkedList;
 
 
 public class BobekClient {
 
     public static void main(String[] args) throws IOException {
-        new BobekClient();
+        BobekClient b = new BobekClient();
+
     }
 
 
@@ -47,11 +48,11 @@ public class BobekClient {
                 break;
             }
         }
-        System.out.println(id);
+        System.out.println("Password: "+id);
     }
 
 
-    private String connectToServer(String password) {
+    private String connectToServer(String password) throws IOException {
         String output = "";
         String login = "szymon";
 
@@ -59,39 +60,28 @@ public class BobekClient {
         PrintWriter out = null;
         BufferedReader in = null;
 
-        try {
-            echoSocket = new Socket("localhost", 3000);
-            out = new PrintWriter(echoSocket.getOutputStream(), true);
-            in = new BufferedReader(new InputStreamReader(
-                    echoSocket.getInputStream()));
 
-            System.out.println("Connction established.");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        echoSocket = new Socket("localhost", 3000);
+        out = new PrintWriter(echoSocket.getOutputStream(), true);
+        in = new BufferedReader(new InputStreamReader(
+                echoSocket.getInputStream()));
+
+        System.out.println("Connection established.");
+
 
 //        out.printf("LOGIN\n%s;%s", login, password);
-        out.printf("%s",password);
+        out.println(password);
+        output = in.readLine();
 
-        try {
-            output = in.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            out.close();
-            in.close();
-            echoSocket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        out.close();
+        in.close();
+        echoSocket.close();
 
         return output;
     }
 
 
-    static int minimum(int a, int b, int c) {
+    private static int minimum(int a, int b, int c) {
         return Math.min(Math.min(a, b), c);
     }
 
