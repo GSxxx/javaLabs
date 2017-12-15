@@ -1,16 +1,20 @@
 package lab08;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BobekServer {
     public static void main(String[] args) throws IOException {
 
-        while(true) {
+        while (true) {
 
 
             String pass = "naperfumowawszy";
@@ -40,11 +44,30 @@ public class BobekServer {
 
             inputLine = in.readLine();
 
-            if (inputLine.equals(pass)) {
-                out.println("xElitExx1X1xxx");
-            } else {
-                System.out.println(inputLine);
-                out.print(BobekClient.computeLevenshteinDistance(pass, inputLine));
+            Pattern r = Pattern.compile("([A-Z]+) ([^ ]+)(;([^ ]+))?");
+            boolean is_logged = false;
+            String user = "";
+
+            Matcher m = r.matcher(inputLine);
+            if (m.find()) {
+                if (m.group(1).equals("LOGIN")) {
+                    if (m.group(4).equals(pass)) {
+                        is_logged=true;
+                        user = m.group(2);
+                        out.println("xElitExx1X");
+                    } else {
+                        System.out.println(m.group(4));
+                        out.print(BobekClient.computeLevenshteinDistance(pass, m.group(4)));
+                    }
+                }
+                if (m.group(1).equals("LOGOUT")) {
+                }
+                if (m.group(1).equals("LS")) {
+                }
+                if (m.group(1).equals("GET")) {
+                }
+
+
             }
 
             out.close();
