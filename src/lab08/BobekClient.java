@@ -56,9 +56,8 @@ public class BobekClient {
 
     void logout() throws IOException {
 
-        Socket echoSocket = null;
-        PrintWriter out = null;
-        BufferedReader in = null;
+        Socket echoSocket;
+        PrintWriter out;
 
 
         echoSocket = new Socket("localhost", 3000);
@@ -78,9 +77,9 @@ public class BobekClient {
     String ls() throws IOException {
         String login = "szymon";
         String output;
-        Socket echoSocket = null;
-        PrintWriter out = null;
-        BufferedReader in = null;
+        Socket echoSocket;
+        PrintWriter out;
+        BufferedReader in;
 
 
         echoSocket = new Socket("localhost", 3000);
@@ -130,10 +129,10 @@ public class BobekClient {
     }
 
     private String connectToServer(String password) throws IOException {
-        String output = "";
+        String output;
         String login = "szymon";
 
-        Socket echoSocket = null;
+        Socket echoSocket;
         PrintWriter out = null;
         BufferedReader in = null;
 
