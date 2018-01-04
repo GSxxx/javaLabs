@@ -24,13 +24,5 @@ public class Server {
 
             new Thread(new SocketUsage(clientSocket)).start();
         }
-
-//        try {
-//            serverSocket.close();
-//
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-
     }
 }

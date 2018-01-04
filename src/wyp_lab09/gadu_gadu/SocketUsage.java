@@ -6,12 +6,10 @@ import java.util.Scanner;
 
 public class SocketUsage implements Runnable {
 
-    private Socket clientSocket;
     private PrintWriter out;
     private BufferedReader in;
 
     SocketUsage(Socket clientSocket) throws IOException {
-        this.clientSocket = clientSocket;
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
