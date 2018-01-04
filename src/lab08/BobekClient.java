@@ -10,7 +10,8 @@ public class BobekClient {
     public static void main(String[] args) throws IOException {
         BobekClient b = new BobekClient();
         System.out.println(b.ls());
-        b.logout();
+        System.out.println(b.getFile("plik2"));
+        System.out.println(b.logout());
 
     }
 
@@ -34,6 +35,7 @@ public class BobekClient {
         String out;
         while (list.size() != 1) {
             id = list.get(0);
+            System.out.print("Logging... ");
             out = connectToServer(id);
             if (out.matches("[0-9]{1,9}")) {
                 distance = Integer.parseInt(out);
@@ -50,32 +52,38 @@ public class BobekClient {
                 break;
             }
         }
-        System.out.println("Password: " + id);
+        System.out.println("Password is: " + id);
+        out = connectToServer(id);
+        id = out;
     }
 
 
-    void logout() throws IOException {
+    String logout() throws IOException {
 
         Socket echoSocket;
         PrintWriter out;
-
+        String output;
+        BufferedReader in;
 
         echoSocket = new Socket("localhost", 3000);
         out = new PrintWriter(echoSocket.getOutputStream(), true);
-
-
-        System.out.println("Connection established.");
-
+        in = new BufferedReader(new InputStreamReader(
+                echoSocket.getInputStream()));
+//        System.out.println("Connection established.");
 
         out.printf("LOGOUT %s\n", this.id);
+        output = in.readLine();
 
         out.close();
         echoSocket.close();
+
+        System.out.print("Logging out... ");
+        return output;
     }
 
 
     String ls() throws IOException {
-        String login = "szymon";
+        String login = "prenc";
         String output;
         Socket echoSocket;
         PrintWriter out;
@@ -88,7 +96,7 @@ public class BobekClient {
                 echoSocket.getInputStream()));
 
 
-        System.out.println("Connection established.");
+//        System.out.println("Connection established.");
 
 
         out.printf("LS %s\n", this.id);
@@ -102,7 +110,7 @@ public class BobekClient {
     }
 
     String getFile(String file) throws IOException {
-        String login = "szymon";
+        String login = "prenc";
         String output;
         Socket echoSocket = null;
         PrintWriter out = null;
@@ -130,7 +138,7 @@ public class BobekClient {
 
     private String connectToServer(String password) throws IOException {
         String output;
-        String login = "szymon";
+        String login = "prenc";
 
         Socket echoSocket;
         PrintWriter out = null;
@@ -146,7 +154,6 @@ public class BobekClient {
 
 
         out.printf("LOGIN %s;%s\n", login, password);
-//        out.println(password);
         output = in.readLine();
 
         out.close();
